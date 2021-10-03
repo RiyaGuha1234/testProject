@@ -1,0 +1,15 @@
+[
+    {
+        "country_id": "1",
+        "country_name": "India"
+    },
+    {
+      "country_id": "2",
+      "country_name": "Nepal"
+    },
+    {
+      "country_id": "3",
+      "country_name": "Bhutan"
+    }
+
+]

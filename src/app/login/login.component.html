@@ -1,0 +1,41 @@
+<div id="registration-div" style="background-color: silver">
+  <div fxFlex="30"></div>
+  <div fxFlex="40">
+    <mat-card>
+      <div>
+        <div fxFlex="80">
+          <h2>Login Form</h2>
+        </div>
+        <div fxFlex="20"  fxLayoutGap="10px"  style="padding-right: 30px">
+          <div fxFlex="80">
+            <button *ngIf="showLogOut" (click)="logOut()">Log Out</button>
+          </div>
+<!--          <div fxFlex="20">-->
+<!--            <button [routerLink]="['/profile']">Profile</button>-->
+<!--          </div>-->
+        </div>
+      </div>
+      <form [formGroup] = loginForm (ngSubmit)="login()">
+        <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
+          <mat-form-field class="col-4">
+            <input matInput  type="text" placeholder="Email" formControlName="email">
+            <mat-error *ngIf="loginForm.controls['email'].errors?.required">This field is Required</mat-error>
+            <mat-error *ngIf="loginForm.controls['email'].errors?.pattern">Enter a valid email</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
+          <mat-form-field class="col-4">
+            <input matInput type ="password" placeholder="Password" formControlName="password">
+            <mat-error *ngIf="loginForm.controls['password'].errors?.required">This field is Required</mat-error>
+            <mat-error *ngIf="loginForm.controls['password'].errors?.minlength">This field is too short</mat-error>
+
+          </mat-form-field>
+        </div>
+        <div style="text-align: center">
+          <button>LogIn</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  <div fxFlex="30"></div>
+</div>

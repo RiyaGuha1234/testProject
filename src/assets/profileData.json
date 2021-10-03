@@ -1,0 +1,17 @@
+[
+    {
+        "email": "abc@gmail.com",
+        "firstName": "Riya",
+        "lastName": "Guha Choudhury",
+        "gender": "Female",
+        "country": "India"
+    },
+   {
+        "email": "def@gmail.com",
+        "firstName": "Sagar",
+        "lastName": "Guha Choudhury",
+        "gender": "Male",
+        "country": "India"
+    }
+
+]

@@ -1,0 +1,44 @@
+<div id="registration-div" style="background-color: blanchedalmond">
+  <div fxFlex="20"></div>
+  <div fxFlex="40">
+    <mat-card  *ngIf="userProfile">
+      <h2>Profile Data</h2>
+      <div style="text-align: right">
+        <button (click)="logout()">Log out</button>
+      </div>
+      <mat-card style="background-color: powderblue">
+        <div>
+          <div fxFlex="50">
+            <mat-label style="font-weight: bolder">First Name :  </mat-label>
+            <mat-label>{{userProfile.firstName}}</mat-label>
+          </div>
+        </div>
+        <div>
+          <div fxFlex="50">
+            <mat-label style="font-weight: bolder">Last Name :  </mat-label>
+            <mat-label>{{userProfile.lastName}}</mat-label>
+          </div>
+        </div>
+        <div>
+          <div fxFlex="50">
+            <mat-label style="font-weight: bolder">Email :  </mat-label>
+            <mat-label>{{userProfile.email}}</mat-label>
+          </div>
+        </div>
+        <div>
+          <mat-label style="font-weight: bolder">Gender :  </mat-label>
+          <mat-label>{{userProfile.gender}}</mat-label>
+        </div>
+        <div>
+          <mat-label style="font-weight: bolder">Country :  </mat-label>
+          <mat-label>{{userProfile.country}}</mat-label>
+        </div>
+<!--        <a href="/editProfile" target="_blank">Edit</a>-->
+        <div style="text-align: center">
+          <a href="/editProfile">Edit</a>
+        </div>
+      </mat-card>
+    </mat-card>
+  </div>
+  <div fxFlex="20"></div>
+</div>

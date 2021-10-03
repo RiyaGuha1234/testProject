@@ -1,0 +1,50 @@
+<div id="registration-div" style="background-color: powderblue">
+  <div fxFlex="20"></div>
+  <div fxFlex="60">
+    <mat-card>
+      <h2 style="text-align: center">Profile Edit Form</h2>
+      <div style="text-align: right">
+        <button (click)="logout()">Log out</button>
+      </div>
+      <form [formGroup] = editProfileForm (ngSubmit)="Update()" >
+        <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
+          <mat-form-field class="col-4">
+            <input matInput placeholder="Name" formControlName="firstName">
+          </mat-form-field>
+          <mat-form-field class="col-4">
+            <input matInput placeholder="LastName" formControlName="lastName">
+          </mat-form-field>
+        </div>
+        <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
+          <mat-form-field class="col-4">
+            <input matInput placeholder="Email" formControlName="email" readonly>
+          </mat-form-field>
+        </div>
+        <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
+          <label>
+            <input type="radio" value="Male" formControlName="gender">
+            <span>male</span>
+          </label>
+          <label>
+            <input type="radio" value="Female" formControlName="gender">
+            <span>female</span>
+          </label>
+        </div>
+        <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
+          <select class="custom-select" formControlName="country" placeholder="Country">
+            <option value=" " disabled selected hidden>Choose Country...</option>
+            <option *ngFor="let country of countries" [ngValue]="country.country_name">{{country.country_name}}</option>
+          </select>
+<!--          <mat-error *ngIf="registrationForm.controls['country'].errors?.required">This field is Required</mat-error>-->
+        </div>
+        <div style="text-align: center">
+          <button type="submit">Update</button>
+        </div>
+        <div *ngIf="showError" style="text-align: center; color: #f44336">
+          <p>Nothing has been changed !!!!</p>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  <div fxFlex="20"></div>
+</div>

@@ -1,0 +1,33 @@
+[
+    {
+      "state_name": "Bihar",
+      "country_id" : 1,
+      "country_name": "India"
+    },
+    {
+      "state_name": "BB",
+      "country_id" : 2,
+      "country_name": "Nepal"
+    },
+    {
+      "state_name": "CC",
+      "country_id" : 3,
+      "country_name": "Bhutan"
+    },
+    {
+      "state_name": "WB",
+      "country_id" : 1,
+      "country_name": "India"
+    },
+    {
+      "state_name": "MP",
+      "country_id" : 1,
+      "country_name": "India"
+    },
+  {
+    "state_name": "UP",
+    "country_id" : 1,
+    "country_name": "India"
+  }
+
+]
