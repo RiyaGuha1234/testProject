@@ -52,6 +52,19 @@ export class RegistrationComponent implements OnInit {
       //   control.markAsUntouched({ onlySelf: true });
       // });
        this.registrationForm.reset();
+      // Object.keys(this.registrationForm.controls).forEach(field => {
+      //   const control = this.registrationForm.get(field).value;
+      //   if(control === null){
+      //     this.registrationForm.get(field).clearValidators() ;
+      //     this.registrationForm.get(field).updateValueAndValidity();
+      //   }
+      // });
+      // return;
+
+      //  if(this.registrationForm.get('country').value === null){
+      //   this.registrationForm.get('country').clearValidators() ;
+      //   this.registrationForm.get('country').updateValueAndValidity();
+      // }
 
        // this.registrationForm = Object.assign({}, this.registrationFormTest);
       //  console.log('registrationForm ', this.registrationForm.value);

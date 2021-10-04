@@ -75,8 +75,8 @@ export class ProfileEditComponent implements OnInit {
     for (var i = 0; i < event.target.files.length; i++) {
       this.files.push(event.target.files[i]);
     }
-    console.log(event.target.files.length);
-    console.log(this.files);
+    // console.log(event.target.files.length);
+    // console.log(this.files);
   }
   deleteImage(index){
     this.files.splice(index, 1);
