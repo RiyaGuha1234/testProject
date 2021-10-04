@@ -6,39 +6,49 @@
       <div style="text-align: right">
         <button (click)="logout()">Log out</button>
       </div>
-      <form [formGroup] = editProfileForm (ngSubmit)="Update()">
-        <div class="dropZone" appDnd (fileDropped)="onFileChange($event)">
-<!--        <div>-->
-<!--          <input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" multiple>-->
-<!--          <input type="file" name="file" id="file" multiple="multiple" (change)="onFileChange($event)" multiple>-->
-          <input type="file"  multiple="multiple" (change)="onFileChange($event)" >
-          <br>
-          <br>
-          <div class="file-list">
-            <table *ngIf="files.length >0">
-              <th>Sl no.</th>
-              <th>FiLe</th>
-              <th>Delete</th>
-              <tr *ngFor="let file of files ;let i = index">
-                <td> {{i+1}}</td>
-                <td> {{file?.name}}</td>
-                <td><button (click)="deleteImage(i)">Delete</button></td>
+      <div class="dropZone" appDnd (fileDropped)="onFileChange($event)">
+        <!--        <div>-->
+        <!--          <input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" multiple>-->
+        <!--          <input type="file" name="file" id="file" multiple="multiple" (change)="onFileChange($event)" multiple>-->
+        <input type="file"  multiple="multiple" (change)="onFileChange($event)" >
+        <br>
+        <br>
+        <div class="file-list"  *ngIf="files.length >0" style="padding: 20px">
+          <table>
+            <tr>
+              <td *ngFor="let url of imgURL ; let i = index">
+                <img [src]="url" height="200" *ngIf="url" style="height: 80px; width: 80px">
+                <button (click)="deleteImage(i)" >Delete</button>
+              </td>
+            </tr>
+          </table>
+          <div class="container" fxLayout="column" fxLayoutGap="10px"  *ngIf="files.length >0">
+            <table>
+              <tr>
+                <td  *ngFor="let url of imgURL"><img src="url" alt="" height="80px" /></td>
               </tr>
             </table>
+            <!--              <div  *ngFor="let url of imgURL">-->
+            <!--                <img src="url" alt="" height="80px" />-->
+            <!--              </div>-->
           </div>
         </div>
-
+      </div>
+      <form [formGroup] = editProfileForm (ngSubmit)="Update()">
         <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
           <mat-form-field class="col-4">
             <input matInput placeholder="Name" formControlName="firstName">
+            <mat-error *ngIf="editProfileForm.controls['firstName'].errors?.required">This field is Required</mat-error>
           </mat-form-field>
           <mat-form-field class="col-4">
             <input matInput placeholder="LastName" formControlName="lastName">
+            <mat-error *ngIf="editProfileForm.controls['lastName'].errors?.required">This field is Required</mat-error>
           </mat-form-field>
         </div>
         <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
           <mat-form-field class="col-4">
             <input matInput placeholder="Email" formControlName="email" readonly>
+            <mat-error *ngIf="editProfileForm.controls['email'].errors?.required">This field is Required</mat-error>
           </mat-form-field>
         </div>
         <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
@@ -50,13 +60,14 @@
             <input type="radio" value="Female" formControlName="gender">
             <span>female</span>
           </mat-label>
+          <mat-error *ngIf="editProfileForm.controls['gender'].errors?.required">This field is Required</mat-error>
         </div>
         <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
           <select class="custom-select" formControlName="country" placeholder="Country">
             <option value=" " disabled selected hidden>Choose Country...</option>
             <option *ngFor="let country of countries" [ngValue]="country.country_name">{{country.country_name}}</option>
           </select>
-<!--          <mat-error *ngIf="registrationForm.controls['country'].errors?.required">This field is Required</mat-error>-->
+          <mat-error *ngIf="editProfileForm.controls['country'].errors?.required">This field is Required</mat-error>
         </div>
         <div style="text-align: center">
           <button type="submit">Update</button>

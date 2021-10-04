@@ -21,19 +21,22 @@ export class ProfileEditComponent implements OnInit {
   countries: any[] = [];
   showError = false;
   files: any[] = [];
+  imgURL: any[] = [];
+  public imagePath;
+  emailPattern = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$';
 
   editProfileForm: FormGroup;
-  constructor(private  http: HttpClient , private  authService: AuthService ,private profileService: ProfileService) {
+  constructor(private  http: HttpClient , private  authService: AuthService , private profileService: ProfileService) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.http.get('assets/country.json').subscribe((data: any) => {
       this.countries = data;
     });
     this.editProfileForm = new FormGroup({
-      email: new FormControl(this.userData.email),
-      firstName: new FormControl(this.userData.firstName),
-      lastName: new FormControl(this.userData.lastName),
-      gender: new FormControl(this.userData.gender),
-      country: new FormControl(this.userData.country),
+      email: new FormControl(this.userData.email, [Validators.required, Validators.pattern(this.emailPattern)]),
+      firstName: new FormControl(this.userData.firstName, [Validators.required]),
+      lastName: new FormControl(this.userData.lastName, [Validators.required]),
+      gender: new FormControl(this.userData.gender, [Validators.required]),
+      country: new FormControl(this.userData.country, [Validators.required]),
     });
   }
 
@@ -44,11 +47,11 @@ export class ProfileEditComponent implements OnInit {
       this.showError = true;
       return;
     }else{
-      if(this.editProfileForm.dirty){
+      if(this.editProfileForm.valid && this.editProfileForm.dirty){
         this.showError = false;
         console.log(this.editProfileForm.value);
         this.profileService.getProfileData(this.editProfileForm.value);
-        this.editProfileForm.reset();
+        // this.editProfileForm.reset();
       }
     }
   }
@@ -72,13 +75,38 @@ export class ProfileEditComponent implements OnInit {
   //   // });
   // }
   onFileChange(event) {
-    for (var i = 0; i < event.target.files.length; i++) {
+
+    // for(let i = 0; i < event.target.files.length; i++){
+    //   let reader = new FileReader();
+    //   this.imagePath = this.files[i];
+    //   reader.readAsDataURL(this.files[i]);
+    //   console.log(reader);
+    //   // tslint:disable-next-line:variable-name
+    //   reader.onload = (_event) => {
+    //     this.imgURL = reader.result;
+    //
+    //   }
+    // this.files = event.target.files;
+    console.log(this.files);
+    for (let i = 0; i < event.target.files.length; i++) {
       this.files.push(event.target.files[i]);
     }
-    // console.log(event.target.files.length);
-    // console.log(this.files);
+    this.imgURL = [];
+    for(let i = 0 ; i < event.target.files.length ; i++ ){
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        // console.log(e.target.result);
+        this.imgURL.push(e.target.result);
+      };
+      reader.readAsDataURL(this.files[i]);
+    }
+
   }
   deleteImage(index){
+    // console.log(this.files);
+    // console.log(this.files[index]);
+    // this.files.splice(index,1);
+    this.imgURL.splice(index,1);
     this.files.splice(index, 1);
     Swal.fire({
       // title: 'Success' ,

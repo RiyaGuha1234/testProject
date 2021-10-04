@@ -9,6 +9,13 @@ export class AuthService {
 
   constructor(private router: Router ,  private  profileService: ProfileService) { }
   //
+  isAuthenticated() {
+    if(localStorage.getItem('user')){
+      return true;
+    } else {
+      return false;
+    }
+  }
   logout(){
     localStorage.removeItem('user');
     localStorage.removeItem('userData');
