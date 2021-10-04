@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { LeftComponent } from './left/left.component';
+import { DndDirective } from './dnd.directive';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LeftComponent } from './left/left.component';
     HomeComponent,
     ProfileEditComponent,
     LeftComponent,
+    DndDirective,
   ],
   imports: [
     BrowserModule,
