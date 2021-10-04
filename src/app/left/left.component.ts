@@ -15,6 +15,8 @@ export class LeftComponent implements OnInit {
   ngOnInit(): void {
     this.profileService.getProfileUpdateListener().subscribe((response) => {
       this.profileData = response;
+      console.log('left');
+      console.log(this.profileData);
     });
 
   }

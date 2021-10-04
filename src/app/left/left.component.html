@@ -1,17 +1,18 @@
 <div style="background-color: indianred">
-  <div *ngIf="profileData" style="padding: 20px">
-    <div>
-      <mat-label>{{profileData.firstName}} {{profileData.lastName}}</mat-label>
-    </div>
-    <div>
-      <mat-label>{{profileData.email}}</mat-label>
-    </div>
-    <div>
-      <mat-label>{{profileData.gender}}</mat-label>
-    </div>
-    <div>
-      <mat-label>{{profileData.country}}</mat-label>
-    </div>
-  </div>
+<!--  <div *ngIf="profileData" style="padding: 20px">-->
+<!--    <div>-->
+<!--      <mat-label>{{profileData.firstName}} {{profileData.lastName}}</mat-label>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <mat-label>{{profileData.email}}</mat-label>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <mat-label>{{profileData.gender}}</mat-label>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <mat-label>{{profileData.country}}</mat-label>-->
+<!--    </div>-->
+<!--  </div>-->
+  <pre>{{profileData | json}}</pre>
 </div>
 
