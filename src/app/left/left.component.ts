@@ -10,7 +10,7 @@ import {ProfileService} from '../services/profile.service';
 export class LeftComponent implements OnInit {
   profileData: any [] = [];
   constructor( private http: HttpClient, private  profileService: ProfileService) {
-    this.profileData = this.profileService.getUpdatedProfileData();
+    // this.profileData = this.profileService.getUpdatedProfileData();
   }
   ngOnInit(): void {
     this.profileService.getProfileUpdateListener().subscribe((response) => {
@@ -18,7 +18,7 @@ export class LeftComponent implements OnInit {
       console.log('left');
       console.log(this.profileData);
     });
-
+    this.profileData = this.profileService.getUpdatedProfileData();
   }
 
 }

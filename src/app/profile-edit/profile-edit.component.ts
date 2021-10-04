@@ -88,6 +88,7 @@ export class ProfileEditComponent implements OnInit {
     //   }
     // this.files = event.target.files;
     console.log(this.files);
+    this.files = [];
     for (let i = 0; i < event.target.files.length; i++) {
       this.files.push(event.target.files[i]);
     }
