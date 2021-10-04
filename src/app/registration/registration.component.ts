@@ -25,8 +25,8 @@ export class RegistrationComponent implements OnInit {
     });
     // @ts-ignore
     // this.registrationFormTest = [...this.registrationForm];
-    this.registrationFormTest = Object.assign({},  this.registrationForm);
-    console.log('registrationFormTest ', this.registrationFormTest.value);
+    // this.registrationFormTest = Object.assign({},  this.registrationForm);
+    // console.log('registrationFormTest ', this.registrationFormTest.value);
     this.http.get('assets/country.json').subscribe((data: any) => {
       this.countries = data;
     });

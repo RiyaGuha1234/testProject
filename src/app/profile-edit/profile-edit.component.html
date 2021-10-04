@@ -7,6 +7,16 @@
         <button (click)="logout()">Log out</button>
       </div>
       <form [formGroup] = editProfileForm (ngSubmit)="Update()" >
+<!--        <div>-->
+<!--&lt;!&ndash;          <input type = "file" id="fileDropRef" multiple (change)="fileBrowseHandler($event.target.file)">&ndash;&gt;-->
+<!--          <input type = "file" id="fileDropRef">-->
+<!--          <h3>Drag and drop file here</h3>-->
+<!--          <h3>Or</h3>-->
+<!--          <label for="fileDropRef">Browse for file </label>-->
+<!--        </div>-->
+        <div>
+
+        </div>
         <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
           <mat-form-field class="col-4">
             <input matInput placeholder="Name" formControlName="firstName">

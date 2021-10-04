@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {J} from '@angular/cdk/keycodes';
 import {AuthService} from '../services/auth.service';
+import {Subject} from 'rxjs';
+import {ProfileService} from '../services/profile.service';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class ProfileEditComponent implements OnInit {
   countries: any[] = [];
   showError = false;
   editProfileForm: FormGroup;
-  constructor(private  http: HttpClient , private  authService: AuthService) {
+  constructor(private  http: HttpClient , private  authService: AuthService ,private profileService: ProfileService) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.http.get('assets/country.json').subscribe((data: any) => {
       this.countries = data;
@@ -41,12 +43,16 @@ export class ProfileEditComponent implements OnInit {
       if(this.editProfileForm.dirty){
         this.showError = false;
         console.log(this.editProfileForm.value);
+        this.profileService.getProfileData(this.editProfileForm.value);
         this.editProfileForm.reset();
       }
     }
   }
   logout(){
     this.authService.logout();
+  }
+  fileBrowseHandler(){
+
   }
 
 }
