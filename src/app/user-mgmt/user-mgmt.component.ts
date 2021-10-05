@@ -15,7 +15,7 @@ export class UserMgmtComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.http.get('assets/userMgmt.json').subscribe((data: any) => {
       this.userManagementData = data;
-      console.log(this.userManagementData);
+      // console.log(this.userManagementData);
     });
   }
 
@@ -117,11 +117,47 @@ export class UserMgmtComponent implements OnInit {
       this.isAllSelected = false;
       this.addCheckAll = false;
     }
+    else{
+      for(let i = 0 ; i < this.userManagementData.length ; i++){
+        if(this.userManagementData[i].add === false){
+          this.addCheckAll = false;
+          this.isAllSelected = false;
+          break;
+        }
+        else{
+          if(this.editCheckAll === true && this.listCheckAll === true){
+            this.isAllSelected = true;
+            this.addCheckAll = true;
+          }
+          else{
+            this.addCheckAll = true;
+          }
+        }
+      }
+    }
   }
   moduleEdit(data){
     if(data === false){
       this.isAllSelected = false;
       this.editCheckAll = false;
+    }
+    else{
+      for(let i = 0 ; i < this.userManagementData.length ; i++){
+        if(this.userManagementData[i].edit === false){
+          this.editCheckAll = false;
+          this.isAllSelected = false;
+          break;
+        }
+        else{
+          if(this.addCheckAll === true && this.listCheckAll === true){
+            this.isAllSelected = true;
+            this.editCheckAll = true;
+          }
+          else{
+            this.editCheckAll = true;
+          }
+        }
+      }
     }
   }
   moduleList(data){
@@ -129,7 +165,24 @@ export class UserMgmtComponent implements OnInit {
       this.isAllSelected = false;
       this.listCheckAll = false;
     }
-
+    else{
+      for(let i = 0 ; i < this.userManagementData.length ; i++){
+        if(this.userManagementData[i].list === false){
+          this.listCheckAll = false;
+          this.isAllSelected = false;
+          break;
+        }
+        else{
+          if(this.addCheckAll === true && this.editCheckAll === true){
+            this.isAllSelected = true;
+            this.listCheckAll = true;
+          }
+          else{
+            this.listCheckAll = true;
+          }
+        }
+      }
+    }
   }
 
 }

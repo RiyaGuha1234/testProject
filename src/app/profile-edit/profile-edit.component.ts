@@ -41,7 +41,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(window.location.href);
+    // console.log(window.location.href);
   }
 
   Update(){

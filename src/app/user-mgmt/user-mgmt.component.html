@@ -20,7 +20,7 @@
           <td colspan="4"><mat-checkbox class="example-margin"[(ngModel)]="listCheckAll" (change)="listCheckAllFunction()"></mat-checkbox></td>
         </tr>
         <tr *ngFor="let data of userManagementData">
-          <td colspan="4">{{data.name}}</td>
+          <td colspan="4">{{data.menu}}</td>
           <td colspan="4"><mat-checkbox class="example-margin" [(ngModel)]="data.add" (change)="moduleAdd(data.add)"></mat-checkbox></td>
           <td colspan="4"><mat-checkbox class="example-margin" [(ngModel)]="data.edit" (change)="moduleEdit(data.edit)"></mat-checkbox></td>
           <td colspan="4"><mat-checkbox class="example-margin" [(ngModel)]="data.list" (change)="moduleList(data.list)"></mat-checkbox></td>

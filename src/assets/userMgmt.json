@@ -1,18 +1,18 @@
 [
     {
-      "name": "Role",
+      "menu": "Role",
       "edit": false,
       "add":  false,
       "list": false
     },
     {
-      "name": "Department",
+      "menu": "Department",
       "edit": false,
       "add":  false,
       "list": false
     },
     {
-      "name": "Users",
+      "menu": "Users",
       "edit": false,
       "add":  false,
       "list": false
