@@ -12,7 +12,7 @@ export class RegistrationComponent implements OnInit {
   registrationFormTest: FormGroup;
   countries: any[] = [];
   // emailPattern = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$';
-  emailPattern = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.com';
+  emailPattern = '[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}';
   constructor(private http: HttpClient) {
     this.registrationForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),

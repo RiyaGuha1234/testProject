@@ -1,0 +1,21 @@
+[
+    {
+      "name": "Role",
+      "edit": false,
+      "add":  false,
+      "list": false
+    },
+    {
+      "name": "Department",
+      "edit": false,
+      "add":  false,
+      "list": false
+    },
+    {
+      "name": "Users",
+      "edit": false,
+      "add":  false,
+      "list": false
+    }
+
+]

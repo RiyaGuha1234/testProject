@@ -30,6 +30,7 @@ export class LogInGuardService implements CanActivate{
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean
   {
     if(localStorage.getItem('user')){
+      this.router.navigate(['profile']);
       return false;
     }else {
       return true;

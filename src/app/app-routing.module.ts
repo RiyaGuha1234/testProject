@@ -8,6 +8,7 @@ import {HomeComponent} from './home/home.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {LogInGuardService} from './services/log-in-guard.service';
 import {ProfileEditComponent} from './profile-edit/profile-edit.component';
+import {UserMgmtComponent} from './user-mgmt/user-mgmt.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'login', canActivate: [LogInGuardService], component: LoginComponent },
   { path: 'profile', canActivate: [AuthGuardService], component: ProfileComponent },
   { path: 'editProfile', canActivate: [AuthGuardService], component: ProfileEditComponent },
+  { path: 'userMgmt', canActivate: [AuthGuardService], component: UserMgmtComponent },
 ];
 
 @NgModule({

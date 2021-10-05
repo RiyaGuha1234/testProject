@@ -21,6 +21,8 @@ import { HomeComponent } from './home/home.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { LeftComponent } from './left/left.component';
 import { DndDirective } from './dnd.directive';
+import { UserMgmtComponent } from './user-mgmt/user-mgmt.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { DndDirective } from './dnd.directive';
     ProfileEditComponent,
     LeftComponent,
     DndDirective,
+    UserMgmtComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { DndDirective } from './dnd.directive';
     NoopAnimationsModule,
     HttpClientModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
