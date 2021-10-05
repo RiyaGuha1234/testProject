@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'testForm', component: FormTestComponent },
   { path: 'registration', canActivate: [LogInGuardService], component: RegistrationComponent },
+  // { path: 'registration', component: RegistrationComponent },
+  // { path: 'login', component: LoginComponent },
   { path: 'login', canActivate: [LogInGuardService], component: LoginComponent },
   { path: 'profile', canActivate: [AuthGuardService], component: ProfileComponent },
   { path: 'editProfile', canActivate: [AuthGuardService], component: ProfileEditComponent },

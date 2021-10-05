@@ -22,6 +22,6 @@ export class ProfileService {
     this.profileSub.next(data);
   }
   getUpdatedProfileData(){
-    return this.profileData;
+     return this.profileData;
   }
 }

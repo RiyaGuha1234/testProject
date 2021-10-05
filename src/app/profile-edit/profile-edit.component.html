@@ -20,7 +20,7 @@
             <tr>
               <td *ngFor="let url of imgURL ; let i = index">
                 <img [src]="url" height="200" *ngIf="url" style="height: 80px; width: 80px">
-                <button (click)="deleteImage(i)" >Delete</button>
+                <button (click)="deleteImage(i)">Delete</button>
               </td>
             </tr>
           </table>

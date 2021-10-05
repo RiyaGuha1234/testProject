@@ -11,7 +11,8 @@ export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
   registrationFormTest: FormGroup;
   countries: any[] = [];
-  emailPattern = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$';
+  // emailPattern = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$';
+  emailPattern = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.com';
   constructor(private http: HttpClient) {
     this.registrationForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
@@ -52,14 +53,14 @@ export class RegistrationComponent implements OnInit {
       //   control.markAsUntouched({ onlySelf: true });
       // });
        this.registrationForm.reset();
-      // Object.keys(this.registrationForm.controls).forEach(field => {
+      //   Object.keys(this.registrationForm.controls).forEach(field => {
       //   const control = this.registrationForm.get(field).value;
       //   if(control === null){
       //     this.registrationForm.get(field).clearValidators() ;
       //     this.registrationForm.get(field).updateValueAndValidity();
       //   }
       // });
-      // return;
+      // this.registrationForm = Object.assign({},  this.registrationFormTest);
 
       //  if(this.registrationForm.get('country').value === null){
       //   this.registrationForm.get('country').clearValidators() ;

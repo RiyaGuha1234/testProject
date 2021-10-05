@@ -11,14 +11,16 @@ export class LeftComponent implements OnInit {
   profileData: any [] = [];
   constructor( private http: HttpClient, private  profileService: ProfileService) {
     // this.profileData = this.profileService.getUpdatedProfileData();
+
+    if(localStorage.getItem('userData')){
+      this.profileData = JSON.parse(localStorage.getItem('userData'));
+    }
   }
   ngOnInit(): void {
     this.profileService.getProfileUpdateListener().subscribe((response) => {
       this.profileData = response;
-      console.log('left');
-      console.log(this.profileData);
     });
-    this.profileData = this.profileService.getUpdatedProfileData();
+    // this.profileData = this.profileService.getUpdatedProfileData();
   }
 
 }

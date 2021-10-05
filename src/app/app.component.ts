@@ -21,8 +21,6 @@ export class AppComponent implements OnInit{
     }
     this.profileService.getProfileUpdateListener().subscribe((response) => {
       if(response){
-        console.log('app');
-        console.log(response);
         this.isAuthenticated = true;
       }
       else{
