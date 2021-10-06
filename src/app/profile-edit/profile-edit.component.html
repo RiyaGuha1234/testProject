@@ -8,35 +8,72 @@
       <div style="text-align: right">
         <button (click)="logout()">Log out</button>
       </div>
-      <div class="dropZone" appDnd (fileDropped)="onFileChange($event)">
-        <!--        <div>-->
-        <!--          <input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" multiple>-->
-        <!--          <input type="file" name="file" id="file" multiple="multiple" (change)="onFileChange($event)" multiple>-->
-        <input type="file"  multiple="multiple" (change)="onFileChange($event)">
-        <br>
-        <br>
-        <div class="file-list"  *ngIf="files.length >0" style="padding: 20px">
-          <table>
-            <tr>
-              <td *ngFor="let url of imgURL ; let i = index">
-                <img [src]="url" height="200" *ngIf="url" style="height: 80px; width: 80px">
-                <button (click)="deleteImage(i)">Delete</button>
-              </td>
-            </tr>
-          </table>
-          <div class="container" fxLayout="column" fxLayoutGap="10px"  *ngIf="files.length >0">
+<!--      <div class="dropZone" appDnd (fileDropped)="onFileChange($event)">-->
+<!--        &lt;!&ndash;        <div>&ndash;&gt;-->
+<!--        &lt;!&ndash;          <input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" multiple>&ndash;&gt;-->
+<!--        &lt;!&ndash;          <input type="file" name="file" id="file" multiple="multiple" (change)="onFileChange($event)" multiple>&ndash;&gt;-->
+<!--        <input type="file"  formControlName="image" multiple="multiple" (change)="onFileChange($event)">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <div class="file-list"  *ngIf="files.length >0" style="padding: 20px">-->
+<!--          <table>-->
+<!--            <tr>-->
+<!--              <td *ngFor="let url of imgURL ; let i = index">-->
+<!--                <img [src]="url" height="200" *ngIf="url" style="height: 80px; width: 80px">-->
+<!--                <button (click)="deleteImage(i)">Delete</button>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--          </table>-->
+<!--          <div class="container" fxLayout="column" fxLayoutGap="10px"  *ngIf="files.length >0">-->
+<!--            <table>-->
+<!--              <tr>-->
+<!--                <td  *ngFor="let url of imgURL"><img src="url" alt="" height="80px" /></td>-->
+<!--              </tr>-->
+<!--            </table>-->
+<!--            &lt;!&ndash;              <div  *ngFor="let url of imgURL">&ndash;&gt;-->
+<!--            &lt;!&ndash;                <img src="url" alt="" height="80px" />&ndash;&gt;-->
+<!--            &lt;!&ndash;              </div>&ndash;&gt;-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <form [formGroup] = editProfileForm (ngSubmit)="Update()">
+        <div class="dropZone" appDnd (fileDropped)="onFileChange($event)">
+          <!--        <div>-->
+          <!--          <input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" multiple>-->
+          <!--          <input type="file" name="file" id="file" multiple="multiple" (change)="onFileChange($event)" multiple>-->
+<!--          <input type="file" multiple="multiple" (change)="onFileChange($event)"><br>-->
+          <input type="file"  formControlName="base64Image" multiple="multiple" (change)="onFileChange($event)"><br>
+<!--          <input type="file"  formControlName="base64Image" multiple="multiple" (change)="onFileChangeBinary($event)"><br>-->
+<!--          <button (click)="base64Upload()">Base64 Upload</button>-->
+<!--          <input type="file"  formControlName="base64Image" multiple="multiple" (change)="testForm($event)"><br>-->
+
+<!--          <input type="file"  formControlName="base64Image" multiple="multiple"><br>-->
+<!--          <input formControlName="file" id="file" type="file"  class="form-control"   multiple="multiple" (change)="onFileChange($event)">-->
+<!--          <input type="file"  formControlName="binaryImage" multiple="multiple" (change)="onFileChange($event)">-->
+<!--          <input type="file" id="file" (change)="test($event)" multiple>-->
+          <br>
+          <br>
+          <div class="file-list"  *ngIf="files.length >0" style="padding: 20px">
             <table>
               <tr>
-                <td  *ngFor="let url of imgURL"><img src="url" alt="" height="80px" /></td>
+                <td *ngFor="let url of imgURL ; let i = index">
+                  <img [src]="url" height="200" *ngIf="url" style="height: 80px; width: 80px">
+                  <button (click)="deleteImage(i)">Delete</button>
+                </td>
               </tr>
             </table>
-            <!--              <div  *ngFor="let url of imgURL">-->
-            <!--                <img src="url" alt="" height="80px" />-->
-            <!--              </div>-->
+            <div class="container" fxLayout="column" fxLayoutGap="10px"  *ngIf="files.length >0">
+              <table>
+                <tr>
+                  <td  *ngFor="let url of imgURL"><img src="url" alt="" height="80px" /></td>
+                </tr>
+              </table>
+              <!--              <div  *ngFor="let url of imgURL">-->
+              <!--                <img src="url" alt="" height="80px" />-->
+              <!--              </div>-->
+            </div>
           </div>
         </div>
-      </div>
-      <form [formGroup] = editProfileForm (ngSubmit)="Update()">
         <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px" fxLayoutGap.xs="0">
           <mat-form-field class="col-4">
             <input matInput placeholder="Name" formControlName="firstName">
@@ -77,6 +114,7 @@
         <div *ngIf="showError" style="text-align: center; color: #f44336">
           <p>Nothing has been changed !!!!</p>
         </div>
+<!--        <button (click)="testForm()">Test</button>-->
       </form>
     </mat-card>
   </div>
