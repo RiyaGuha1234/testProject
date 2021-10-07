@@ -23,6 +23,9 @@ import { LeftComponent } from './left/left.component';
 import { DndDirective } from './dnd.directive';
 import { UserMgmtComponent } from './user-mgmt/user-mgmt.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ModalComponent } from './modal/modal.component';
+import {MatDialogConfig, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     LeftComponent,
     DndDirective,
     UserMgmtComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,8 +56,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     HttpClientModule,
     MatIconModule,
     MatSelectModule,
-    MatCheckboxModule
-  ],
+    MatCheckboxModule,
+    MatDialogModule,
+    MatButtonModule,
+],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,20 @@
+<div class="m-5 p-5" style="min-height: 150px !important;">
+  <div>
+    <form [formGroup]="contactForm">
+      <mat-form-field class="col-4 m-1">
+        <input matInput  type="text" placeholder="Address" formControlName="address">
+        <mat-error *ngIf="contactForm.controls['address'].errors?.required">This field is Required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-4 m-1">
+        <input matInput  type="text" placeholder="Mobile" formControlName="mobile">
+        <mat-error *ngIf="contactForm.controls['mobile'].errors?.required">This field is Required</mat-error>
+      </mat-form-field>
+
+    </form>
+    <button class="" mat-button color="primary" (click)="addDetails()">Add</button>
+    <button class="" mat-button color="primary" mat-dialog-close>Cancel</button>
+<!--    <pre>{{contactForm.controls['contact'].errors?.required | json}}</pre>-->
+<!--    <pre>{{contactForm.controls['address'].errors?.required | json}}</pre>-->
+  </div>
+</div>

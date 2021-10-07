@@ -8,7 +8,9 @@ import {ProfileService} from '../services/profile.service';
 import Swal from 'sweetalert2';
 import { base64StringToBlob } from 'blob-util';
 import {consoleTestResultHandler} from 'tslint/lib/test';
-
+// import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {ModalComponent} from '../modal/modal.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 @Component({
@@ -33,7 +35,7 @@ export class ProfileEditComponent implements OnInit {
   imageSrc: any;
   base64FormData: FormData = null ;
 
-  constructor(private  http: HttpClient, private  authService: AuthService, private profileService: ProfileService) {
+  constructor(private  http: HttpClient, private  authService: AuthService, private profileService: ProfileService, public dialog: MatDialog) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.http.get('assets/country.json').subscribe((data: any) => {
       this.countries = data;
@@ -301,8 +303,23 @@ export class ProfileEditComponent implements OnInit {
   //   }
   //
   // }
+  openModal(){
+    // const dialogConfig = new MatDialogConfig();
+    // // The user can't close the dialog by clicking outside its body
+    // dialogConfig.disableClose = true;
+    // dialogConfig.id = "modal-component";
+    // dialogConfig.height = "350px";
+    // dialogConfig.width = "600px";
+    // // https://material.angular.io/components/dialog/overview
+    // const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '250px',
+      // data: {name: this.name, animal: this.animal}
+    });
 
-
-
-
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
+  }
 }
